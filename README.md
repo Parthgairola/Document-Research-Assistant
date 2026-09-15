@@ -1,17 +1,6 @@
-# AI-Powered Research Assistant
+# Document Research Assistant
 
-A basic RAG-based AI Research Assistant that allows users to upload a research paper and ask questions about its content.
-
-## Features
-
-- Loads research papers in PDF format
-- Splits the document into smaller chunks
-- Creates vector embeddings using Hugging Face
-- Stores embeddings in FAISS
-- Retrieves relevant chunks based on the user's question
-- Generates answers using an LLM
-- Provides page numbers for the retrieved information
-- Refuses to answer when information is not available in the paper
+A RAG-based AI Document Research Assistant that allows users to provide a research paper in PDF format and ask questions about its content.
 
 ## Tech Stack
 
@@ -28,24 +17,33 @@ PDF → Text Extraction → Chunking → Embeddings → FAISS → Retrieval → 
 
 ## Example
 
-The assistant can answer:
+The user provides a research paper and asks:
 
 > What are the different types of GANs?
 
-It can also handle questions unrelated to the research paper:
+The assistant retrieves relevant information from the document and generates an answer using the LLM.
+
+For questions unrelated to the document:
 
 > When is NASA going to space next?
 
-In such cases, it responds that the answer cannot be found in the provided research paper.
+The assistant responds:
+
+> I couldn't find the answer in the provided document.
 
 ## Project Structure
 
+The project contains a `documents` folder for research papers, `main.py` containing the application code, `requirements.txt` for dependencies, and `.gitignore` for excluded files.
+
 ```text
-AI_RESEARCH_ASSISTANT/
+DOCUMENT_RESEARCH_ASSISTANT/
 │
-├── documents/
-│   └── research_paper.pdf
+├── document_research_assistant/
+│   ├── documents/
+│   │   └── research_paper.pdf
+│   ├── main.py
+│   ├── README.md
+│   └── .gitignore
 │
-├── main.py
-├── requirements.txt
-└── README.md
+├── .env
+└── requirements.txt
