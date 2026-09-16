@@ -57,14 +57,14 @@ class DocumentResearchAssistant:
         ])
         
         final_prompt= prompt.invoke({})
-        response = self.model.invoke(final_prompt)
+        answer = self.model.invoke(final_prompt)
 
-        print(response.content)
+        return query , context , answer
         
 
 assistant = DocumentResearchAssistant()
 
-assistant.ingestion("documents\Generative_Adversarial_Networks.pdf")
+assistant.ingestion("../documents/Generative_Adversarial_Networks.pdf")
 
 assistant.retrieval("Name 3 Types of Gans ")
 
