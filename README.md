@@ -2,6 +2,8 @@
 
 A RAG-based AI Document Search Assistant that allows users to upload a PDF document and ask questions about its content.
 
+[Live Demo](https://document-search-assistant.streamlit.app/)
+
 ## Tech Stack
 
 - Python
