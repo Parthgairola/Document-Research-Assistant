@@ -1,67 +1,84 @@
-# Document Research Assistant 
- 
-A RAG-based AI Document Research Assistant that allows users to provide a research paper in PDF format and ask questions about its content. 
- 
-## Tech Stack 
- 
-- Python 
-- LangChain 
-- Hugging Face 
-- FAISS 
-- PyPDF 
-- RAG 
-- RAGAS 
- 
-## How It Works 
- 
-PDF → Text Extraction → Chunking → Embeddings → FAISS → Retrieval → Prompt → LLM → Answer 
- 
-## Example 
- 
-The user provides a research paper and asks: 
- 
-> What are the different types of GANs? 
- 
-The assistant retrieves relevant information from the document and generates an answer using the LLM. 
- 
-For questions unrelated to the document: 
- 
-> When is NASA going to space next? 
- 
-The assistant responds: 
- 
-> I couldn't find the answer in the provided document. 
- 
-## RAG Evaluation 
- 
-The RAG pipeline is evaluated using **RAGAS** with the following metrics: 
- 
-- Faithfulness 
-- Answer Relevancy 
-- Answer Correctness 
-- Context Precision 
-- Context Recall 
- 
-### V1 Evaluation 
- 
-![RAGAS Evaluation Results](evaluations/v1_ragas_evaluation.png) 
- 
+# Document Search Assistant
+
+A RAG-based AI Document Search Assistant that allows users to upload a PDF document and ask questions about its content.
+
+## Tech Stack
+
+- Python
+- LangChain
+- Groq
+- Cohere
+- ChromaDB
+- Streamlit
+- PyPDF
+- RAG
+- RAGAS
+- Docker
+
+## How It Works
+
+PDF → Text Extraction → Chunking → Cohere Embeddings → ChromaDB → Retrieval → Prompt → Groq LLM → Answer
+
+## Example
+
+The user uploads a research paper and asks:
+
+> What are the two networks in a GAN, and what does each network do?
+
+The assistant retrieves relevant information from the document and generates an answer using the Groq LLM.
+
+For questions unrelated to the document:
+
+> How many planets are there in the solar system ?
+
+The assistant responds:
+
+> I couldn't find the answer in the provided document.
+
+## Application Preview
+
+### Preview 1
+
+![Application Preview](evaluations/preview_1.png)
+
+### Preview 2
+
+![Application Preview](evaluations/preview_2.png)
+
+## RAG Evaluation
+
+The RAG pipeline is evaluated using **RAGAS** with the following metrics:
+
+- Faithfulness
+- Answer Correctness
+- Context Precision
+- Context Recall
+
+### RAGAS Evaluation Results
+
+![RAGAS Evaluation Results](evaluations/ragas_evaluation.png)
+
 ## Project Structure
 
 ```text
-DOCUMENT_RESEARCH_ASSISTANT/
+DOCUMENT_SEARCH_ASSISTANT/
 
-app/
+src/
+    __init__.py
+    document_logo.jpg
     main.py
+    ui.py
 
 documents/
-    research_paper.pdf
 
 evaluations/
     evaluate.py
-    v1_ragas_evaluation.png
+    preview_1.png
+    preview_2.png
+    ragas_evaluation.png
 
-README.md
+.dockerignore
 .gitignore
+Dockerfile
+README.md
 requirements.txt
-.env

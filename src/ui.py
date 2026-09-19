@@ -35,5 +35,6 @@ if uploaded_file:
 question = st.chat_input("""Ask a question about your document...""")
 if question:
     query, answer, contexts = assistant.retrieval(question)
+    st.write("Question: ",query)
     st.write("Answer:", answer)
 
